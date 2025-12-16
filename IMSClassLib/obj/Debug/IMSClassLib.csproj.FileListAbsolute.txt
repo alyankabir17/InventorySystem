@@ -1,0 +1,6 @@
+E:\study material\6th semester material\VP LAB\OEL\InventoryManagementSystem\IMSClassLib\bin\Debug\IMSClassLib.dll
+E:\study material\6th semester material\VP LAB\OEL\InventoryManagementSystem\IMSClassLib\bin\Debug\IMSClassLib.pdb
+E:\study material\6th semester material\VP LAB\OEL\InventoryManagementSystem\IMSClassLib\obj\Debug\IMSClassLib.csproj.AssemblyReference.cache
+E:\study material\6th semester material\VP LAB\OEL\InventoryManagementSystem\IMSClassLib\obj\Debug\IMSClassLib.csproj.CoreCompileInputs.cache
+E:\study material\6th semester material\VP LAB\OEL\InventoryManagementSystem\IMSClassLib\obj\Debug\IMSClassLib.dll
+E:\study material\6th semester material\VP LAB\OEL\InventoryManagementSystem\IMSClassLib\obj\Debug\IMSClassLib.pdb

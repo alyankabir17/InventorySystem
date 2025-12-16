@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center container mt-5">
+    <h2 class="display-5 fw-bold">Welcome to</h2>
+    <h1 class="display-2 fw-bold text-primary">Inventory Management System</h1>
+    <p class="fs-5 fw-bold p-5">
+        Effortlessly track, manage, and optimize your inventory in real-time.
+        Let’s get started on streamlining your operations and boosting efficiency!
+    </p>
+
+    <div class="d-flex justify-content-center gap-3">
+        <a asp-controller="User" asp-action="Login" class="btn btn-primary btn-lg px-5 shadow">
+            Login
+        </a>
+        <a asp-controller="User" asp-action="Signup" class="btn btn-outline-secondary btn-lg px-4 shadow">
+            Create Account
+        </a>
+    </div>
+
+</div>

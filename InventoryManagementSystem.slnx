@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="IMSClassLib/IMSClassLib.csproj" Id="e66797b9-3cbb-44bd-abd9-90c1371e6ae5" />
+  <Project Path="InventoryManagementSystem/InventoryManagementSystem.csproj" />
+</Solution>

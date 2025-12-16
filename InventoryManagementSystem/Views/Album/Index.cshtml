@@ -1,0 +1,42 @@
+﻿@using InventoryManagementSystem.Models.Entities;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/_DashLayout.cshtml";
+    ViewData["Title"] = "Dashboard | Album API Data";
+}
+
+@model List<Album>;
+
+<div class="container col-12 mt-5">
+    <div class="d-flex bg-dark text-light align-items-center justify-content-center p-4">
+        <h2 class="fw-bold">Album API Data</h2>
+    </div>
+    <table class="table table-striped table-bordered border-rounded">
+        <thead class="bg-dark text-light fw-bold">
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>User Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var album in Model)
+            {
+                <tr>
+                    <td>@album.Id</td>
+                    <td>@album.Title</td>
+                    <td>@album.UserId</td>
+                    <td class="d-flex align-items-center justify-content-center gap-2 flex-wrap">
+                        <a asp-action="Edit" class="btn btn-primary" asp-route-id="@album.Id">Edit</a>
+                        <form method="post" asp-action="Delete" asp-route-id="@album.Id">
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

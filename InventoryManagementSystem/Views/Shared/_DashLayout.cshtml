@@ -1,0 +1,130 @@
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@{
+    var userRole = HttpContextAccessor.HttpContext.Session.GetInt32("UserRole");
+}
+
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - InventoryManagementSystem</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/InventoryManagementSystem.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+</head>
+<body class="overflow-hidden">
+    <div class="d-flex align-items-start justify-content-start col-12 w-100 m-0 p-0 overflow-hidden" style="width: 100vw;">
+
+        <aside class="col-2 text-decoration-none bg-dark vh-100 d-flex flex-column p-3 justify-content-start">
+            <h2 class="fw-bold text-light text-center p-3">IMS</h2>
+            <nav>
+                <ul class="list-group bg-none gap-2">
+
+                    <li class="list-group-item bg-transparent border-0 p-0">
+                        <a asp-controller="Dashboard" asp-action="Index" class="text-decoration-none text-light d-block p-2 hover-bg-secondary rounded">
+                            <i class="fa fa-gauge me-2"></i> Dashboard
+                        </a>
+                    </li>
+
+                    <li class="list-group-item bg-transparent border-0 p-0">
+                        <a asp-controller="Store" asp-action="Index" class="text-decoration-none text-warning d-block p-2 hover-bg-secondary rounded fw-bold">
+                            <i class="fa fa-shop me-2"></i> Live Store
+                        </a>
+                    </li>
+
+                    <li class="list-group-item bg-transparent border-0 p-0">
+                        <a asp-controller="Product" asp-action="Index" class="text-decoration-none text-light d-block p-2 hover-bg-secondary rounded">
+                            <i class="fa fa-box me-2"></i> Products
+                        </a>
+                    </li>
+
+                    <li class="list-group-item bg-transparent border-0 p-0">
+                        <a asp-controller="Category" asp-action="Index" class="text-decoration-none text-light d-block p-2 hover-bg-secondary rounded">
+                            <i class="fa fa-tags me-2"></i> Categories
+                        </a>
+                    </li>
+
+                    <li class="list-group-item bg-transparent border-0 p-0">
+                        <a asp-controller="Supplier" asp-action="Index" class="text-decoration-none text-light d-block p-2 hover-bg-secondary rounded">
+                            <i class="fa fa-truck me-2"></i> Suppliers
+                        </a>
+                    </li>
+
+                    <li class="list-group-item bg-transparent border-0 p-0">
+                        <a asp-controller="Customer" asp-action="Index" class="text-decoration-none text-light d-block p-2 hover-bg-secondary rounded">
+                            <i class="fa fa-users me-2"></i> Customers
+                        </a>
+                    </li>
+
+                    <li class="list-group-item bg-transparent border-0 p-0">
+                        <a asp-controller="Purchase" asp-action="Index" class="text-decoration-none text-light d-block p-2 hover-bg-secondary rounded">
+                            <i class="fa fa-cart-shopping me-2"></i> Purchases
+                        </a>
+                    </li>
+
+                    <li class="list-group-item bg-transparent border-0 p-0">
+                        <a asp-controller="Sale" asp-action="Index" class="text-decoration-none text-light d-block p-2 hover-bg-secondary rounded">
+                            <i class="fa fa-chart-line me-2"></i> Sales History
+                        </a>
+                    </li>
+
+                    @if (userRole == 1)
+                    {
+                        <hr class="text-light" />
+                        <li class="list-group-item bg-transparent border-0 p-0">
+                            <a asp-controller="User" asp-action="Index" class="text-decoration-none text-info d-block p-2 hover-bg-secondary rounded">
+                                <i class="fa fa-user-shield me-2"></i> Users (Admin)
+                            </a>
+                        </li>
+                    }
+
+                    @if (userRole == 2)
+                    {
+                        <hr class="text-light" />
+                        <li class="list-group-item bg-transparent border-0 p-0">
+                            <a asp-controller="Album" asp-action="Index" class="text-decoration-none text-light d-block p-2 hover-bg-secondary rounded">
+                                <i class="fa fa-images me-2"></i> Album API
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </nav>
+        </aside>
+        <div class="col-10 vh-100 overflow-scroll">
+            <div class="bg-light border-bottom p-4 d-flex align-items-center justify-content-between sticky-top shadow-sm">
+                <h2 class="fw-bold fs-2 m-0">
+                    Welcome
+                    @if (userRole == 1)
+                    {
+                        <span>Admin</span>
+                    }
+                    else if (userRole == 2)
+                    {
+
+                        <span>Manager</span>
+                    }
+                    else
+                    {
+
+                        <span>User</span>
+                    }
+                </h2>
+
+                <a asp-controller="User" asp-action="Logout" title="Logout" class="text-decoration-none">
+                    <i class="fa fa-right-from-bracket btn btn-danger p-2 rounded-circle"></i>
+                </a>
+            </div>
+            <main role="main" class="p-4">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

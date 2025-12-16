@@ -1,0 +1,39 @@
+﻿@model InventoryManagementSystem.Models.Entities.Sale
+
+@{
+    Layout = "~/Views/Shared/_DashLayout.cshtml";
+    ViewData["Title"] = "New Sale";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-dark text-white">
+            <h3 class="mb-0">Record New Sale</h3>
+        </div>
+        <div class="card-body">
+            <form asp-action="Create">
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Select Product</label>
+                    <select asp-for="ProductId" class="form-control" asp-items="ViewBag.ProductId"></select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Select Customer</label>
+                    <select asp-for="CustomerId" class="form-control" asp-items="ViewBag.CustomerId"></select>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Quantity" class="form-label fw-bold"></label>
+                    <input asp-for="Quantity" class="form-control" type="number" min="1" />
+                    <span asp-validation-for="Quantity" class="text-danger"></span>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-success">Complete Sale</button>
+                    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
