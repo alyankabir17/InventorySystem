@@ -89,6 +89,3 @@ The project includes a `Dockerfile` for easy deployment to cloud platforms like 
 Distributed under the MIT License.
 *Developed by [Alyan Kabir]*
 
-
----
-*Developed by [Your Name]*
